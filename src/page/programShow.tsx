@@ -19,5 +19,7 @@ export function ProgramShow() {
             "In feugiat urna nisi, et sodales eros elementum non. Pellentesque eget dignissim massa. Nam facilisis eget leo nec laoreet. Curabitur consequat sem mauris, a ultrices purus aliquam eget. Mauris purus orci, consectetur vitae blandit eu, pulvinar in diam. Phasellus condimentum, lectus in tincidunt tristique, ipsum nisi facilisis nulla, sed vehicula magna ipsum in nunc. Sed egestas neque mattis, dictum sem ac, luctus nunc. Curabitur sit amet neque molestie, malesuada nulla at, viverra risus. Sed hendrerit porttitor nulla tempor aliquam. Mauris nec neque hendrerit, mollis leo in, ornare ante. "}
                     image={"./fetchimage.png"}></Featurette>
         <FeaturetteSeparator></FeaturetteSeparator>
+        <Featurette title={"Portefolio"} description={"Mon portefolio"} githublink={""}></Featurette>
+        <FeaturetteSeparator></FeaturetteSeparator>
     </>
 }
