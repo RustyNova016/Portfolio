@@ -16,17 +16,19 @@ export function Carousel() {
     }, []);
 
     return (
-        <div className={"caroussel-container"}>
-            <div className="slides">
-                <button onClick={() => dispatch({type: "NEXT"})}>‹</button>
+        <>
+            <div className={"caroussel-container"}>
+                <div className="slides">
+                    <button onClick={() => dispatch({type: "NEXT"})}>‹</button>
 
-                {[...slides, ...slides, ...slides].map((slide, i) => {
-                    let offset = slides.length + (state.slideIndex - i);
-                    return <SlideComponent slide={slide} offset={offset} key={i}/>;
-                })}
+                    {[...slides, ...slides, ...slides].map((slide, i) => {
+                        let offset = slides.length + (state.slideIndex - i);
+                        return <SlideComponent slide={slide} offset={offset} key={i}/>;
+                    })}
 
-                <button onClick={() => dispatch({type: "PREV"})}>›</button>
+                    <button onClick={() => dispatch({type: "PREV"})}>›</button>
+                </div>
             </div>
-        </div>
+        </>
     );
 }
