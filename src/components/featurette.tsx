@@ -1,6 +1,6 @@
-import {LinkPreview} from "@dhaiwat10/react-link-preview";
 import {ProjectInterface} from "../data/project/project.interface";
 import {TechnologiesInterface} from "../data/technologies/technologies.interface";
+import {LinkPreviewCustom} from "./linkPreviewCustom";
 
 const images = require.context('../../public/images', true);
 
@@ -11,54 +11,57 @@ export function FeaturetteSeparator() {
 }
 
 export interface FeaturettePropsI {
-    title: string;
-    description?: string;
-    image?: string;
-    githublink?: string;
-    project?: ProjectInterface;
+    project: ProjectInterface;
 }
 
 export function FeaturetteHeading(props: { title: string }) {
     return <h2 className="featurette-heading">{props.title}</h2>;
 }
 
-function LinkPreviewCustom(props: { url: string, width: number}) {
-    return <LinkPreview url={props.url} backgroundColor={"#2b2b2b"} borderColor={"#555555"}
-                        primaryTextColor={"#ffffff"} secondaryTextColor={"#dddddd"} width={props.width}
-                        imageHeight={props.width/2} ></LinkPreview>;
-}
-
 export function Featurette(props: FeaturettePropsI) {
-    console.info(props.description)
+    const project = props.project;
+    console.info(project.description)
     return <>
         <div className="row featurette">
             <div className="col-md-7">
-                <FeaturetteHeading title={props.title}/>
-                <p className="lead">{props.description}</p>
-                {props.githublink ?
+                <FeaturetteHeading title={project.name}/>
+                <p className="lead">{project.description}</p>
+
+
+                <div style={{marginBottom: "20px", marginTop: "50px"}}>
+                    {
+                        project.technologies?.map(value => {
+                            return <><Tag tech={value}></Tag></>
+                        })
+                    }
+                </div>
+            </div>
+
+            <div className="col-md-5">
+                {project.githublink ?
                     <>
-                        <LinkPreviewCustom url={props.githublink} width={500}/>
+                        <LinkPreviewCustom url={project.githublink} width={500}/>
                     </>
                     : <></>
                 }
-            </div>
-            {props.image ?
-                <div className="col-md-5">
-                    <img src={images(props.image)}/>
-                </div>
-                : <></>
-            }
 
+                {project.images ?
+
+                    {/*<img src={images(project.images)}/>*/ //TODO: List of images
+                    }
+                    : <></>
+                }
+            </div>
         </div>
     </>
 }
 
-export function Tag(tech: TechnologiesInterface) {
+export function Tag({tech}: { tech: TechnologiesInterface }) {
 
 
     return <>
-        <div className={"rounded-pill"} style={{borderColor: tech.color}}>
+        <span className={"rounded-pill"} style={{borderColor: tech.color}}>
             {tech.name}
-        </div>
+        </span>
     </>
 }

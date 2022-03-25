@@ -8,8 +8,7 @@ export function ProgramSection() {
         <FeaturetteSeparator></FeaturetteSeparator>
         {projectData.map(value => {
             return <>
-                <Featurette title={value.name} description={value.description}
-                            githublink={value.githublink}></Featurette>
+                <Featurette project={value}></Featurette>
                 <FeaturetteSeparator></FeaturetteSeparator>
             </>
         })}
