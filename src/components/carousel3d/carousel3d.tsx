@@ -1,12 +1,13 @@
 import {Reducer, useEffect, useReducer} from "react";
-import {CarouselStateI, CarousselReducerActionI, SlideComponent, slides, slidesReducer} from "../carroussel";
+import {SlideComponent, slidesReducer} from "../carroussel";
 import "./CarrouselStyle.css"
+import {CarouselStateI, CarousselReducerActionI, SlideDataI} from "../../data/carousel/carousel.interfaces";
 
 export const initialState: CarouselStateI = {
     slideIndex: 0
 };
 
-export function Carousel() {
+export function Carousel3D(props: { data: SlideDataI[] }) {
     const [state, dispatch] = useReducer<Reducer<CarouselStateI, CarousselReducerActionI>>(slidesReducer, initialState);
 
     useEffect(() => {
@@ -21,8 +22,8 @@ export function Carousel() {
                 <div className="slides">
                     <button onClick={() => dispatch({type: "NEXT"})}>‹</button>
 
-                    {[...slides, ...slides, ...slides].map((slide, i) => {
-                        let offset = slides.length + (state.slideIndex - i);
+                    {[...props.data, ...props.data, ...props.data].map((slide, i) => {
+                        let offset = props.data.length + (state.slideIndex - i);
                         return <SlideComponent slide={slide} offset={offset} key={i}/>;
                     })}
 

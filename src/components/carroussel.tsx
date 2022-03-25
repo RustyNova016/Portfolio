@@ -1,49 +1,8 @@
 import {CSSProperties} from "react";
-import {imageGetter} from "../tools/imageGetter";
+import {languagesSlides} from "../data/carousel/carousel.data";
+import {CarouselStateI, CarousselReducerActionI, SlideComponentPropsI} from "../data/carousel/carousel.interfaces";
 
 console.clear();
-
-interface SlideDataI {
-    title: string;
-    subtitle: string;
-    description: string;
-    image: string;
-}
-
-export interface CarouselStateI {
-    slideIndex: number;
-}
-
-export interface CarousselReducerActionI {
-    type: string;
-}
-
-export const slides: SlideDataI[] = [
-    {
-        title: "PHP",
-        subtitle: "",
-        description: "",
-        image: imageGetter("logos/php.png")
-    },
-    {
-        title: "TypeScript",
-        subtitle: "",
-        description: "Avec Javascript",
-        image: imageGetter("logos/typescript.png")
-    },
-    {
-        title: "Python",
-        subtitle: "",
-        description: "",
-        image: imageGetter("logos/python.png")
-    },
-    {
-        title: "C#",
-        subtitle: "",
-        description: "",
-        image: imageGetter("logos/csharp.png")
-    }
-];
 
 /*function useTilt(active: boolean | null) {
     const ref = useRef(null);
@@ -98,22 +57,17 @@ export function slidesReducer(state: CarouselStateI, action: CarousselReducerAct
         return {
             ...state,
             slideIndex:
-                (state.slideIndex + 1) % slides.length
+                (state.slideIndex + 1) % languagesSlides.length
         };
     } else if (action.type === "PREV") {
         return {
             ...state,
             slideIndex:
-                state.slideIndex === 0 ? slides.length - 1 : state.slideIndex - 1
+                state.slideIndex === 0 ? languagesSlides.length - 1 : state.slideIndex - 1
         };
     } else {
         return state;
     }
-}
-
-interface SlideComponentPropsI {
-    slide: SlideDataI;
-    offset: number;
 }
 
 

@@ -9,7 +9,8 @@ import "./assets/carousel.css"
 import "./assets/AppCSS.css"
 import {FeaturetteHeading} from "./components/featurette";
 import {LanguageCard} from "./components/LanguageCard";
-import {Carousel} from "./components/carousel3d/carousel3d";
+import {Carousel3D} from "./components/carousel3d/carousel3d";
+import {languagesSlides} from "./data/carousel/carousel.data";
 
 
 export interface SectionTitleI {
@@ -33,6 +34,7 @@ function CompetenceSection() {
             <LanguageCard title={"Typescript"} text={"desc"}/>
             <LanguageCard title={"Python"} text={"desc"}/>
             <LanguageCard title={"C#"} text={"desc"} image={"logos/csharp.png"}/>
+            <LanguageCard title={"Java"} text={"desc"} image={"logos/csharp.png"}/>
         </Row>
     </>;
 }
@@ -43,10 +45,7 @@ function Footer() {
 
             <div className="row" style={{marginTop: "10px"}}>
                 <div className="col-6">
-                    <a className="footer" href="https://honkaiimpact3.mihoyo.com/global/en-us/home">
-                        <img className="footer-image img-fluid" style={{maxHeight: "100px !important;"}}
-                             src="/honkailog/img/Honkai.png"/>
-                    </a>
+                    <a className="footer" href="https://honkaiimpact3.mihoyo.com/global/en-us/home"></a>
                 </div>
 
 
@@ -90,7 +89,7 @@ function App() {
                 <a href={"#projets"}></a>
                 <ProgramSection></ProgramSection>
 
-                <Carousel></Carousel>
+                <Carousel3D data={languagesSlides}></Carousel3D>
 
                 <a href={"#languages"}></a>
                 <CompetenceSection/>
