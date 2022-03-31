@@ -33,3 +33,51 @@ export const languagesSlides: SlideDataI[] = [
         description: ""
     }
 ];
+
+export const CMSSlides: SlideDataI[] = [
+    {
+        title: "WordPress",
+        image: imageGetter("logos/wordpress.png"),
+    },
+    {
+        title: "Symfony",
+        image: imageGetter("logos/symfony.png"),
+    },
+    /*{
+        title: "Prestashop",
+        image: imageGetter("logos/csharp.png"),
+    }*/
+]
+
+export const FrameworkSlides: SlideDataI[] = [
+    {
+        title: "Bootstrap",
+        image: imageGetter("logos/csharp.png"),
+    },
+    {
+        title: "React",
+        image: imageGetter("logos/csharp.png"),
+    },
+]
+
+export const serverSlide: SlideDataI[] = [
+    {
+        title: "Apache",
+        image: imageGetter("logos/csharp.png"),
+    },
+    {
+        title: "Express",
+        image: imageGetter("logos/csharp.png"),
+    },
+]
+
+export const bddSlides: SlideDataI[] = [
+    {
+        title: "MySQL 8",
+        image: imageGetter("logos/csharp.png"),
+    },
+    {
+        title: "MongoDB",
+        image: imageGetter("logos/csharp.png"),
+    },
+]

@@ -1,7 +1,7 @@
 export interface SlideDataI {
     title: string;
-    subtitle: string;
-    description: string;
+    subtitle?: string;
+    description?: string;
     image: string;
 }
 
