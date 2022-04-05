@@ -1,4 +1,4 @@
-import {Featurette, FeaturetteSeparator} from "../components/featurette";
+import {ProjectFeaturette, FeaturetteSeparator} from "../components/projectFeaturette";
 import React from "react";
 import {projectData} from "../data/project/project.data";
 
@@ -8,7 +8,7 @@ export function ProgramSection() {
         {projectData.map(value => {
             return <>
                 <FeaturetteSeparator></FeaturetteSeparator>
-                <Featurette project={value}></Featurette>
+                <ProjectFeaturette project={value}></ProjectFeaturette>
             </>
         })}
     </>

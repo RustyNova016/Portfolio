@@ -29,7 +29,7 @@ export const languagesSlides: SlideDataI[] = [
     {
         title: "Java",
         subtitle: "",
-        image: imageGetter("logos/csharp.png"),
+        image: imageGetter("logos/java.png"),
         description: ""
     }
 ];
@@ -52,32 +52,39 @@ export const CMSSlides: SlideDataI[] = [
 export const FrameworkSlides: SlideDataI[] = [
     {
         title: "Bootstrap",
-        image: imageGetter("logos/csharp.png"),
+        image: imageGetter("logos/bootstrap.png"),
     },
     {
         title: "React",
-        image: imageGetter("logos/csharp.png"),
+        image: imageGetter("logos/React.jpg"),
     },
 ]
 
 export const serverSlide: SlideDataI[] = [
     {
         title: "Apache",
-        image: imageGetter("logos/csharp.png"),
+        image: imageGetter("logos/Apache.png"),
     },
     {
         title: "Express",
-        image: imageGetter("logos/csharp.png"),
+        image: imageGetter("logos/express.png"),
     },
 ]
 
 export const bddSlides: SlideDataI[] = [
     {
         title: "MySQL 8",
-        image: imageGetter("logos/csharp.png"),
+        image: imageGetter("logos/mysql.png"),
     },
     {
         title: "MongoDB",
-        image: imageGetter("logos/csharp.png"),
+        image: imageGetter("logos/mongo.png"),
     },
+]
+
+export const autreSlides: SlideDataI[] = [
+    {
+        title: "Github Copilot",
+        image: imageGetter("logos/copi.png"),
+    }
 ]

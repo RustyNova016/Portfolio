@@ -1,6 +1,7 @@
 import {ProjectInterface} from "../data/project/project.interface";
 import {TechnologiesInterface} from "../data/technologies/technologies.interface";
 import {LinkPreviewCustom} from "./linkPreviewCustom";
+import {Col, Row} from "react-bootstrap";
 
 const images = require.context('../../public/images', true);
 
@@ -18,7 +19,7 @@ export function FeaturetteHeading(props: { title: string }) {
     return <h2 className="featurette-heading">{props.title}</h2>;
 }
 
-export function Featurette(props: FeaturettePropsI) {
+export function ProjectFeaturette(props: FeaturettePropsI) {
     const project = props.project;
     console.info(project.description)
     return <>
@@ -29,18 +30,25 @@ export function Featurette(props: FeaturettePropsI) {
 
 
                 <div style={{marginBottom: "20px", marginTop: "50px"}}>
-                    {
-                        project.technologies?.map(value => {
-                            return <><Tag tech={value}></Tag></>
-                        })
-                    }
+                    <Row xs={1} md={5}>
+                        {
+                            project.technologies?.map(value => {
+                                return <>
+                                    <Col lg={2}>
+                                        <Tag tech={value}></Tag>
+                                    </Col>
+                                </>
+                            })
+                        }
+                    </Row>
+
                 </div>
             </div>
 
             <div className="col-md-5">
                 {project.githublink ?
                     <>
-                        <LinkPreviewCustom url={project.githublink} width={500}/>
+                        <LinkPreviewCustom url={project.githublink} width={400}/>
                     </>
                     : <></>
                 }

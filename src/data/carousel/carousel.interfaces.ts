@@ -7,6 +7,7 @@ export interface SlideDataI {
 
 export interface CarouselStateI {
     slideIndex: number;
+    slides: SlideDataI[];
 }
 
 export interface CarousselReducerActionI {
@@ -16,4 +17,5 @@ export interface CarousselReducerActionI {
 export interface SlideComponentPropsI {
     slide: SlideDataI;
     offset: number;
+    slideid: number;
 }
