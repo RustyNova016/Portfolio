@@ -1,9 +1,19 @@
 $commonBackground: #2b2b2b;
 
+body {
+  margin: 0;
+  padding: 0;
+}
+
+.background-shading {
+  // get the background to 50% opacity
+  background-color: rgba($commonBackground, 0.5);
+}
+
 .App {
   background-color: $commonBackground;
   color: aliceblue;
-  padding-bottom: 3rem;
+  padding-top: 1px;
 }
 
 .featurette-divider {
@@ -31,25 +41,58 @@ $commonBackground: #2b2b2b;
   }
 }
 
+
+.main-title{
+  text-align: center;
+  font-size: 75px;
+  padding: 20%;
+  text-shadow: -5px -5px 0 #000, 5px -5px 0 #000, -5px 5px 0 #000, 5px 5px 0 #000;
+}
+
+.parallax {
+  /* The image used */
+  background-image: url("https://korben.info/app/uploads/2018/12/codes-coding-computer-270366.jpg");
+
+  /* Set a specific height */
+  min-height: 500px;
+
+  /* Create the parallax scrolling effect */
+  background-attachment: fixed;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
 .section-title{
   h1 {
     text-align: center;
-    font-size: 75px;
+    font-size: 50px;
     border-radius: 10px;
     border-top: aliceblue 2px solid;
     padding-top: 20px;
     padding-bottom: 20px;
+    margin-top: 50px;
   }
 }
 
 /* Language card */
 $pic-height: 256px;
 
+.LC-image{
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  horiz-align: center;
+}
+
 .language-card{
   div{
-    background-color: $commonBackground;
+    //background-color: $commonBackground;
+    color: $commonBackground;
     margin-bottom: 10px;
     border-color: aliceblue;
+    border-width: 3px;
     min-width: 30%;
   }
 
@@ -78,4 +121,5 @@ $pic-height: 256px;
   padding-right: 10px;
   margin-bottom: 20px;
   margin-right: 10px;
+  word-wrap: break-word;
 }

@@ -1,49 +1,8 @@
 import {CSSProperties} from "react";
-import {imageGetter} from "../tools/imageGetter";
+import {languagesSlides} from "../data/carousel/carousel.data";
+import {CarouselStateI, CarousselReducerActionI, SlideComponentPropsI} from "../data/carousel/carousel.interfaces";
 
 console.clear();
-
-interface SlideDataI {
-    title: string;
-    subtitle: string;
-    description: string;
-    image: string;
-}
-
-export interface CarouselStateI {
-    slideIndex: number;
-}
-
-export interface CarousselReducerActionI {
-    type: string;
-}
-
-export const slides: SlideDataI[] = [
-    {
-        title: "PHP",
-        subtitle: "",
-        description: "",
-        image: imageGetter("logos/php.png")
-    },
-    {
-        title: "TypeScript",
-        subtitle: "",
-        description: "Avec Javascript",
-        image: imageGetter("logos/typescript.png")
-    },
-    {
-        title: "Python",
-        subtitle: "",
-        description: "",
-        image: imageGetter("logos/python.png")
-    },
-    {
-        title: "C#",
-        subtitle: "",
-        description: "",
-        image: imageGetter("logos/csharp.png")
-    }
-];
 
 /*function useTilt(active: boolean | null) {
     const ref = useRef(null);
@@ -94,38 +53,35 @@ export const slides: SlideDataI[] = [
  * @param action
  */
 export function slidesReducer(state: CarouselStateI, action: CarousselReducerActionI): CarouselStateI {
+    console.log("Slide index: " + state.slideIndex)
     if (action.type === "NEXT") {
         return {
             ...state,
             slideIndex:
-                (state.slideIndex + 1) % slides.length
+                (state.slideIndex + 1) % state.slides.length
         };
     } else if (action.type === "PREV") {
         return {
             ...state,
             slideIndex:
-                state.slideIndex === 0 ? slides.length - 1 : state.slideIndex - 1
+                state.slideIndex === 0 ? state.slides.length - 1 : state.slideIndex - 1
         };
     } else {
         return state;
     }
 }
 
-interface SlideComponentPropsI {
-    slide: SlideDataI;
-    offset: number;
-}
-
 
 export function SlideComponent(props: SlideComponentPropsI) {
-    const {slide, offset} = props
+    const {slide, offset, slideid} = props
 
     const active = offset === 0 ? true : null;
     //const ref = useTilt(active);
 
     let style = {
         "--offset": offset.toString(),
-        "--dir": offset === 0 ? 0 : offset > 0 ? 1 : -1
+        "--dir": offset === 0 ? 0 : offset > 0 ? 1 : -1,
+        "--posid": slideid.toString()
     } as CSSProperties;
 
     return (
